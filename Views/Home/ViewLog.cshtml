@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Expense>
+
+<div class ="form-inline" style="margin:10px">
+<h3>Expense History</h3>
+   <div style="width: 20px"></div>
+    <a asp-action="Index" class="btn btn-outline-dark">Current View</a>
+</div>
+<hr />
+
+
+<table class="table">
+    <thead>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Date)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr class="table-warning">
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
